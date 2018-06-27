@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open",
-    "lint": "node_modules/.bin/eslint --fix ."
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "lint": "node_modules/.bin/eslint ./src",
+    "lintFix": "node_modules/.bin/eslint --fix ./src"
   },
   "author": "",
   "license": "ISC",

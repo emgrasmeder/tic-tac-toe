@@ -9,21 +9,25 @@ module.exports = {
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
+  },
+  devServer: {
+    contentBase: './dist',
+    hot: true
   },
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader",
-        options: { fix: "true" }
+        loader: 'eslint-loader',
+        options: { fix: 'true' }
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{ loader: "babel-loader" }, { loader: "eslint-loader" }],
+        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
       },
       {
         test: /\.css$/,
